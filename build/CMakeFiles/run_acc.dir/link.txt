@@ -1,1 +1,0 @@
-/usr/bin/c++       CMakeFiles/run_acc.dir/run_acc.cpp.o  -o run_acc -rdynamic 

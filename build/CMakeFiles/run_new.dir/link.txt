@@ -1,1 +1,0 @@
-/usr/bin/c++    -rdynamic CMakeFiles/run_new.dir/run_new.cpp.o  -o run_new 

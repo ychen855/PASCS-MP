@@ -1,3 +1,0 @@
-/mnt/d/Projects/correntropy_dict/build/CMakeFiles/rebuild_cache.dir
-/mnt/d/Projects/correntropy_dict/build/CMakeFiles/edit_cache.dir
-/mnt/d/Projects/correntropy_dict/build/CMakeFiles/run_new.dir
