@@ -1,0 +1,1 @@
+/usr/bin/c++       CMakeFiles/Stochastic_Coordinate_Coding_master.dir/run.cpp.o  -o Stochastic_Coordinate_Coding_master -rdynamic 

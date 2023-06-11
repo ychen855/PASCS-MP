@@ -1,0 +1,1 @@
+/home/jianfen6/sparse/Stochastic-Coordinate-Coding-master/cmake-build-debug_norandom/CMakeFiles/Stochastic_Coordinate_Coding_master.dir
