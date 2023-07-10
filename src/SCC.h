@@ -128,11 +128,6 @@ void UpdateFeature( double **Wd, double *sample, double *residuals, double *feat
 			nonZeroIndex.push_back(i);
 
 	}
-	// double sum_res = 0;
-	// for (unsigned int j = 0; j < sampleDim; j++) {
-	// 	sum_res += residuals[j] * residuals[j];
-	// }
-	// p_i = exp(-sum_res / sigma / sigma);
 
 	for ( unsigned int k = 1; k < layers; k++ ){
 		for ( unsigned int i = 0; i < nonZeroIndex.size(); i++ ){
@@ -148,19 +143,11 @@ void UpdateFeature( double **Wd, double *sample, double *residuals, double *feat
 			feature[nonZeroIndex[i]] += optimalT;
 
 			if ( optimalT!=0 ){
-				// double sum_res = 0;
 				for (unsigned int j = 0; j < sampleDim; j++) {
 					residuals[j] += optimalT * Wd[nonZeroIndex[i]][j];
-					// sum_res += residuals[j] * residuals[j];
 				}
-				// p_i = exp(-sum_res / sigma / sigma);
         	}
 		}
-		// double sum_res = 0;
-		// for (unsigned int j = 0; j < sampleDim; j++) {
-		// 	sum_res += residuals[j] * residuals[j];
-		// }
-		// p_i = exp(-sum_res / sigma / sigma);
 	}
 
 	nonZeroIndex.resize(0);
@@ -176,7 +163,6 @@ void UpdateWd( double **Wd, double *residuals, double *feature, double *A, std::
 
     	for ( unsigned int i = 0; i < sampleDim; i++ ){
         	for ( unsigned int j = 0; j < nonZeroIndex.size(); j++ ){
-                // std::cout << dpl::learningRate(A,nonZeroIndex[j]) << std::endl;
 				if( NonNegative && Wd[nonZeroIndex[j]][i] - feature[nonZeroIndex[j]]*residuals[i]*p_i*dpl::learningRate(A,nonZeroIndex[j])<0 )
 				    Wd[nonZeroIndex[j]][i] = 0;
                 else
@@ -298,10 +284,7 @@ void trainDecoder( double **Wd, double **feature, double **sample, double lambda
 			p[i] += sample[i][j] * sample[i][j];
 		}
 		p[i] = exp(-p[i] / sigma / sigma);
-		// std::cout << p[i] << " ";
 	}
-
-	// exit(0);
 
 	srand((unsigned)time(0));
 	myseed = (unsigned int) RAND_MAX * rand();
@@ -312,9 +295,6 @@ void trainDecoder( double **Wd, double **feature, double **sample, double lambda
 	clock_t BeginTime = clock();
 	clock_t epochBegin = clock();
 
-	// int epochNumber = iterationNumber / sampleNumber;
-
-	// for( unsigned int it = 0; it < 10; it++ ){
 	for( unsigned int it = 0; it < iterationNumber; it++ ){
 		int cur_id = it%sampleNumber;
 		int index = cur_id;
@@ -326,10 +306,6 @@ void trainDecoder( double **Wd, double **feature, double **sample, double lambda
 		UpdateWd( Wd, residuals, feature[index], A, nonZeroIndex[index], sampleDim, NonNegative, p[index] );
 		NormalizeWd( Wd, nonZeroIndex[index], sampleDim );
 		UpdateP( Wd, residuals, sampleDim, p, index, sigma);
-
-		// for(int i = 0; i < 10; i++){
-		// 	std::cout << p[i] << std::endl;
-		// }
 		
 		if( it%sampleNumber==sampleNumber-1 ){
 					std::cout<<it/sampleNumber + 1<<" epochs finished"<<std::endl;
@@ -351,7 +327,7 @@ void trainDecoder( double **Wd, double **feature, double **sample, double lambda
 	delete [] nonZeroIndex;
 }
 
-void trainDecoderRandom( double **Wd, double **feature, double **sample, double lambda, int layers, int featureDim, int sampleNumber, int sampleDim, int iterationNumber, bool NonNegative, double sigma, int patchSize ){
+void trainDecoderRandom( double **Wd, double **feature, double **sample, double lambda, int layers, int featureDim, int sampleNumber, int sampleDim, int iterationNumber, bool NonNegative, double sigma){
 	
 	double *residuals = (double*)malloc(sampleDim*sizeof(double));
 	double *A = Initialize_A( featureDim );
@@ -379,25 +355,22 @@ void trainDecoderRandom( double **Wd, double **feature, double **sample, double 
 
 	int epochNumber = iterationNumber / sampleNumber;
 
-	int* rIndex = getRandomIndex(sampleNumber/patchSize);
-
 	for( unsigned int epoch = 0; epoch < epochNumber; epoch++){
+		int* rIndex = getRandomIndex(sampleNumber);
 		Initialize_A( A, A_Copy, featureDim );
-		for( unsigned int patch = 0; patch < sampleNumber/patchSize; patch++){
-			int cur_patch = rIndex[patch];
-			for( unsigned int i = 0; i < patchSize; i++){
-				int index = cur_patch * patchSize + i;
-				UpdateFeature( Wd, sample[index], residuals, feature[index], nonZeroIndex[index], lambda, layers, featureDim, sampleDim, NonNegative, p[index], sigma);
-				Update_A( A, A_Copy, feature[index], nonZeroIndex[index] );
-				UpdateWd( Wd, residuals, feature[index], A, nonZeroIndex[index], sampleDim, NonNegative, p[index] );
-				NormalizeWd( Wd, nonZeroIndex[index], sampleDim );
-				UpdateP( Wd, residuals, sampleDim, p, index, sigma);
-			}
+		for( unsigned int i = 0; i < sampleNumber; i++){
+			int index = rIndex[i];
+			UpdateFeature( Wd, sample[index], residuals, feature[index], nonZeroIndex[index], lambda, layers, featureDim, sampleDim, NonNegative, p[index], sigma);
+			Update_A( A, A_Copy, feature[index], nonZeroIndex[index] );
+			UpdateWd( Wd, residuals, feature[index], A, nonZeroIndex[index], sampleDim, NonNegative, p[index] );
+			NormalizeWd( Wd, nonZeroIndex[index], sampleDim );
+			UpdateP( Wd, residuals, sampleDim, p, index, sigma);
 		}
 		std::cout<< epoch + 1<<" epochs finished"<<std::endl;
 		clock_t epochTime = clock();
 		std::cout<<"epochs time: " << (double)(epochTime - epochBegin)/CLOCKS_PER_SEC <<std::endl;
 		epochBegin = epochTime;
+		free(rIndex);
 	}
 	
 	clock_t EndTime = clock();

@@ -69,7 +69,7 @@ int main(int argc, char* argv[])
 
  	feature = dpl::FeatureInitialization( featureDim, sampleNumber);
 	std::cout<<"Start training "<<std::endl;
-	dpl::trainDecoderRandom( Wd, feature, sample, lambda, layers, featureDim, sampleNumber,  sampleDim, iterationNumber, NonNegative, sigma, patchSize);
+	dpl::trainDecoderRandom( Wd, feature, sample, lambda, layers, featureDim, sampleNumber,  sampleDim, iterationNumber, NonNegative, sigma);
 	std::cout<<"Finish training "<<std::endl;
 
 	dpl::saveDictionary( featureDim, sampleDim, Wd, savedDictionaryName );

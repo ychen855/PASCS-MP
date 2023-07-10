@@ -30,9 +30,9 @@ int main(int argc, char* argv[])
 	strcpy(savedDictionaryName, argv[4]);
 	int featureDim = atoi(argv[7]); //2000;
 	int sampleDim = 400;
-	int layers = 3;
-	int epochNumber = 20;
-	int patchSize = 70;
+	int layers = 5;
+	int epochNumber = 10;
+	int patchSize = 252;
 	double lambda = atof(argv[5]); //0.13;
 	double sigma = atof(argv[6]); // 2
 	bool DictionaryGenerationState = true;
@@ -53,7 +53,6 @@ int main(int argc, char* argv[])
 	std::cout<<"Begin to read sample."<<std::endl;
 	sample = dpl::ReadSample( SampleFileName, sampleNumber, sampleDim );
 	dpl::SampleNormalization( sample, sampleNumber, sampleDim, NonNegative );
-	std::cout << "sigma used: " << sigma << std::endl;
 
 	std::cout<<"Begin to initialize dictionary."<<std::endl;
 

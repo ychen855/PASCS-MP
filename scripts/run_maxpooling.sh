@@ -1,1 +1,1 @@
-python maxpooling.py --input /mnt/d/Projects/plasma/data/198_np/mms/252/MMS_sparse_1800.txt --output /mnt/d/Projects/plasma/data/198_np/mms/252/MMS_features_1800py.txt --dim 252
+python maxpooling.py --input /scratch/ychen855/Plasma/data/198_np/mms/1008/1800/0.2_4.0/MMS_sparse.txt --output /scratch/ychen855/Plasma/data/198_np/mms/1008/1800/0.2_4.0/MMS_features.txt --dim 1008
