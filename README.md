@@ -22,13 +22,9 @@ If you find this work useful, please cite:
 ## Step 1: Hippocampus registration, segmentation, surface reconstruction and parameterization
 ## Step 2: Extracting MMS features
 
-Input:
+	Input: Nifti images
 
-Nifti images
-
-Output:
-
-Hippocampus surface mesh with MMS features (RD and mTBM). We name them JFeatures and save them in .m files.
+	Output: Hippocampus surface mesh with MMS features (RD and mTBM). We name them JFeatures and save them in .m files.
 
 Steps 1 and 2 can be done by our MTSMS pipeline: https://gsl.lab.asu.edu/mtsms/.
 
