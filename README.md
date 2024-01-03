@@ -22,9 +22,13 @@ If you find this work useful, please cite:
 ## Step 1: Hippocampus registration, segmentation, surface reconstruction and parameterization
 ## Step 2: Extracting MMS features
 
-	Input: Nifti images
+Input:
 
-	Output: Hippocampus surface mesh with MMS features (RD and mTBM). We name them JFeatures and save them in .m files.
+	Nifti images
+
+Output:
+
+	Hippocampus surface mesh with MMS features (RD and mTBM). We name them JFeatures and save them in .m files.
 
 Steps 1 and 2 can be done by our MTSMS pipeline: https://gsl.lab.asu.edu/mtsms/.
 
@@ -100,10 +104,8 @@ MMS_features.txt contains the sample feature matrix and can be used in downstrea
 
 ## If you need a deeper dive into the technical details, here is a list of previous methods and their original publications:
 
-1. Patch Analysis-based Surface Sparse-coding and Max-Pooling (PASS-MP): 
+1. Patch Analysis-based Surface Sparse-coding and Max-Pooling (PASS-MP): Zhang, J., Stonnington, C., Li, Q., Shi, J., Bauer, R.J., Gutman, B.A., Chen, K., Reiman, E.M., Thompson, P.M., Ye, J. and Wang, Y., 2016, April. Applying sparse coding to surface multivariate tensor-based morphometry to predict future cognitive decline. In 2016 IEEE 13th International Symposium on Biomedical Imaging (ISBI) (pp. 646-650). IEEE.
 
-2. PASS: 
-
-3. Stochastic Coordinate Coding: 
+2. Stochastic Coordinate Coding: Lin, B., Li, Q., Sun, Q., Lai, M.J., Davidson, I., Fan, W. and Ye, J., 2014. Stochastic coordinate coding and its application for drosophila gene expression pattern annotation. arXiv preprint arXiv:1407.8147.
 
 
