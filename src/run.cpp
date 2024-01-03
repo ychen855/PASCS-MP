@@ -20,37 +20,6 @@
 
 int main(int argc, char* argv[])
 {
-	/*
-	double **Wd;
-	double **feature;
-	double **sample;
-	char SampleFileName[100] = "D:\\Dropbox (ASU)\\Project\\MICCAI2019\\sparse\\Input.txt";
-	char FeatureFileName[100] = "D:\\Dropbox (ASU)\\Project\\MICCAI2019\\sparse\\sparse.txt";
-	//char initializedDictionaryName[100] = "D:\\Dropbox (ASU)\\Project\\MICCAI2019\\Sparsecoding\\test\\RandomPatchDictionary.txt";
-	char savedDictionaryName[100] = "D:\\Dropbox (ASU)\\Project\\MICCAI2019\\sparse\\Dictionary.txt";
-	int featureDim = 1000;
-	int sampleDim = 128;
-	int layers = 5;
-	int epochNumber = 10;
-	double lambda = 0.13;
-	bool NonNegative = false;
-	int sampleNumber = dpl::getSampleNumber(SampleFileName);
-	std::cout << sampleNumber << std::endl;
-
-	Wd = dpl::readDictionary(savedDictionaryName, featureDim, sampleDim);
-	std::cout << Wd[0][0] << " " << Wd[sampleDim - 1][featureDim - 1] << std::endl;
-
-	feature = dpl::Readsparse(FeatureFileName, sampleNumber, featureDim);
-	std::cout << feature[0][0] << " " << feature[sampleNumber - 1][featureDim - 1] << std::endl;
-	sample = dpl::ReadSample(SampleFileName, sampleNumber, sampleDim);
-
-
-	dpl::SampleNormalization(sample, sampleNumber, sampleDim, NonNegative);
-
-	dpl::calculateError(Wd, sample, feature, 0.13, sampleNumber, sampleDim, featureDim);
-	*/
-/******************************************************************************************************************/
-
 	char SampleFileName[100];
 	strcpy(SampleFileName, argv[1]);//"D:\\Dropbox (ASU)\\Project\\MICCAI2019\\Sparsecoding\\test\\Input.txt";
 	char FeatureFileName[100];// "D:\\Dropbox (ASU)\\Project\\MICCAI2019\\Sparsecoding\\test\\sparse.txt";
@@ -60,9 +29,10 @@ int main(int argc, char* argv[])
 	char savedDictionaryName[100]; // "D:\\Dropbox (ASU)\\Project\\MICCAI2019\\Sparsecoding\\dict.txt";
 	strcpy(savedDictionaryName, argv[4]);
 	int featureDim = atoi(argv[7]); //2000;
-	int sampleDim = atoi(argv[8]);
+	int sampleDim = 400;
 	int layers = 5;
 	int epochNumber = 10;
+	int patchSize = 252;
 	double lambda = atof(argv[5]); //0.13;
 	double sigma = atof(argv[6]); // 2
 	bool DictionaryGenerationState = true;
