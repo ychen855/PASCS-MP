@@ -9,6 +9,7 @@ The original development of this method can be found in our previous publication
 Wu, J., Dong, Q., Gui, J., Zhang, J., Su, Y., Chen, K., Thompson, P.M., Caselli, R.J., Reiman, E.M., Ye, J. and Wang, Y., 2021. Predicting brain amyloid using multivariate morphometry statistics, sparse coding, and Correntropy: Validation in 1,101 individuals from the ADNI and OASIS databases. Frontiers in Neuroscience, 15, p.669595.
 
 Authors:
+
 	Yanxi Chen, email: ychen855@asu.edu
  	Jianfeng Wu, email: Jianfeng.Wu@asu.edu
   	Jie Zhang, email: JieZhang.Joena@asu.edu
