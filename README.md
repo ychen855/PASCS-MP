@@ -5,7 +5,7 @@ This is the geometric feature extraction pipeline for the paper: Chen, Y., Su, Y
 
 The original development of this method can be found in our previous publications:
 
-	Wu, J., Dong, Q., Gui, J., Zhang, J., Su, Y., Chen, K., Thompson, P.M., Caselli, R.J., Reiman, E.M., Ye, J. and Wang, Y., 2021. Predicting brain amyloid using multivariate morphometry statistics, sparse coding, and Correntropy: Validation in 1,101 individuals from the ADNI and OASIS databases. Frontiers in Neuroscience, 15, p.669595.
+Wu, J., Dong, Q., Gui, J., Zhang, J., Su, Y., Chen, K., Thompson, P.M., Caselli, R.J., Reiman, E.M., Ye, J. and Wang, Y., 2021. Predicting brain amyloid using multivariate morphometry statistics, sparse coding, and Correntropy: Validation in 1,101 individuals from the ADNI and OASIS databases. Frontiers in Neuroscience, 15, p.669595.
 
 Authors:
 
@@ -15,8 +15,8 @@ Authors:
 
 If you find this work useful, please cite:
 	
-	1. Chen, Y., Su, Y., Wu, J., Chen, K., Atri, A., Caselli, R.J., Reiman, E.M., Wang, Y. and Alzheimer’s Disease Neuroimaging Initiative, 2023. Combining Blood-Based Biomarkers and Structural MRI Measurements to Distinguish Persons With and Without Significant Amyloid Plaques. bioRxiv, pp.2023-10.
-	2. Wu, J., Dong, Q., Gui, J., Zhang, J., Su, Y., Chen, K., Thompson, P.M., Caselli, R.J., Reiman, E.M., Ye, J. and Wang, Y., 2021. Predicting brain amyloid using multivariate morphometry statistics, sparse coding, and Correntropy: Validation in 1,101 individuals from the ADNI and OASIS databases. Frontiers in Neuroscience, 15, p.669595.
+1. Chen, Y., Su, Y., Wu, J., Chen, K., Atri, A., Caselli, R.J., Reiman, E.M., Wang, Y. and Alzheimer’s Disease Neuroimaging Initiative, 2023. Combining Blood-Based Biomarkers and Structural MRI Measurements to Distinguish Persons With and Without Significant Amyloid Plaques. bioRxiv, pp.2023-10.
+2. Wu, J., Dong, Q., Gui, J., Zhang, J., Su, Y., Chen, K., Thompson, P.M., Caselli, R.J., Reiman, E.M., Ye, J. and Wang, Y., 2021. Predicting brain amyloid using multivariate morphometry statistics, sparse coding, and Correntropy: Validation in 1,101 individuals from the ADNI and OASIS databases. Frontiers in Neuroscience, 15, p.669595.
 
 ## Step 1: Hippocampus registration, segmentation, surface reconstruction and parameterization
 ## Step 2: Extracting MMS features
