@@ -22,10 +22,14 @@ Steps 1 and 2 can be done by our MTSMS pipeline: https://gsl.lab.asu.edu/mtsms/.
 
 ## Step 3: Select patches on the hippocampal surface mesh
 
-Usage: ./run [INPUT] [OUTPUT] [INITIAL_DICT] [DICT] [LAMBDA] [SIGMA] [FEAT_DIM]
-Usage: ./run_correntropy MMS_patches.txt MMS_sparse.txt MMS_initialdict.txt MMS_dict.txt 2.2 3.6 2000 400
+This step is to be run by matlab.
+Usage: in run_select_patch.m, set the dataset name and folders containg JFeature files (assuming positive and negative in two folders). Then run run_select_patch.m using matlab.
 
 ## Step 4: Correntropy-based sparse coding
+
+This step is implemented by C++ and compiled Linux 64-bit binary is available. Source code is in src/.
+Usage: ./run [INPUT] [OUTPUT] [INITIAL_DICT] [DICT] [LAMBDA] [SIGMA] [FEAT_DIM]
+Usage: ./run_correntropy MMS_patches.txt MMS_sparse.txt MMS_initialdict.txt MMS_dict.txt 2.2 3.6 2000 400
 
 Usage: ./MaxPooling [FEAT_DIM] [PATCH_SIZE] MMS_sparse.txt MMS_features.txt
 
@@ -38,4 +42,5 @@ You may also cite the previous studies:
 2. PASS: 
 
 3. Stochastic Coordinate Coding: 
+
 
