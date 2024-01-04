@@ -1,5 +1,5 @@
 /*
-	Stochastic Coordinate Coding  version 1.0
+	PASCS-MP
 */
 #include <iostream>
 #include <algorithm>
@@ -29,7 +29,7 @@ int main(int argc, char* argv[])
 	char savedDictionaryName[100]; // "D:\\Dropbox (ASU)\\Project\\MICCAI2019\\Sparsecoding\\dict.txt";
 	strcpy(savedDictionaryName, argv[4]);
 	int featureDim = atoi(argv[7]); //2000;
-	int sampleDim = 400;
+	int sampleDimDim = atoi(argv[8]); //400
 	int layers = 5;
 	int epochNumber = 10;
 	int patchSize = 252;

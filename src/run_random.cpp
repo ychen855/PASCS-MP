@@ -1,5 +1,5 @@
 /*
-	Stochastic Coordinate Coding  version 1.0
+	PASCS-MP
 */
 #include <iostream>
 #include <algorithm>
